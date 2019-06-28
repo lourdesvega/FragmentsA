@@ -20,4 +20,6 @@
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="listar">Listar</string>
+    <string name="especie">Especie</string>
+    <string name="clasificaci_n">Clasificación</string>
 </resources>
