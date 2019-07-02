@@ -1,6 +1,7 @@
 package com.example.zoologico;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -9,6 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -29,7 +34,19 @@ public class Listar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listar, container, false);
+        View view= inflater.inflate(R.layout.fragment_listar, container, false);
+        ListView l = (ListView)view.findViewById(R.id.lista);
+        //Agregar ListView
+        SQLite sqlite;
+        sqlite= new SQLite(getContext());
+        sqlite.abrir();
+        Cursor cursor = sqlite.getRegistro();
+        ArrayList<String> reg = sqlite.getAnimal(cursor);
+
+        ArrayAdapter<String> adaptador= new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,reg);
+        l.setAdapter(adaptador);
+        return view;
+
     }
 
 }

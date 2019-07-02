@@ -20,6 +20,16 @@
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="listar">Listar</string>
+    <string name="clasificacion">Clasificación</string>
+    <string name="sexo">Sexo</string>
     <string name="especie">Especie</string>
-    <string name="clasificaci_n">Clasificación</string>
+    <string name="macho">Macho</string>
+    <string name="fecha_de_ingreso">Fecha de Ingreso</string>
+    <string name="habitat">Habitat</string>
+    <string name="alimentaci_n">Alimentación</string>
+    <string name="nombre">Nombre</string>
+    <string name="guardar">Guardar</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="id">ID</string>
+    <string name="modificar">Modificar</string>
 </resources>
