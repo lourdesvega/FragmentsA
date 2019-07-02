@@ -61,12 +61,71 @@ public class Modificar extends Fragment {
 
         sqlite= new SQLite(getContext());
         sqlite.abrir();
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!id.getText().toString().equals(""))
+                {
+                    if (sqlite.getCantidad(Integer.parseInt(id.getText().toString())).getCount()==1)
+                    {
+                        clase.setVisibility(view.VISIBLE);
+                        tipo.setVisibility(view.VISIBLE);
+                        sexo.setVisibility(view.VISIBLE);
+                        nombre.setVisibility(view.VISIBLE);
+                        habit.setVisibility(view.VISIBLE);
+                        alim.setVisibility(view.VISIBLE);
+                        fech.setVisibility(view.VISIBLE);
+                        btnGuardar.setVisibility(view.VISIBLE);
+                        int f = Integer.parseInt(id.getText().toString());
+                        Cursor cursor = sqlite.getCantidad(f);
+                        String g1 =null, g2 =null, g3 =null, g4 =null, g5=null,g6=null,g7=null;
+                        if (cursor.moveToFirst())
+                        {
+                            do {
+                                g1 = cursor.getString(3);
+                                g2 = cursor.getString(5);
+                                g3 = cursor.getString(6);
+                                g4 = cursor.getString(7);
+                                g5 = cursor.getString(1);
+
+                            }while (cursor.moveToNext());
+                        }
+                        nombre.setText(g2.toString());
+                        habit.setText(g3.toString());
+                        alim.setText(g4.toString());
+                        fech.setText(g1.toString());
+                        //clase.setOnItemSelectedListener();
+                        //if(g1.equals("MACHO")){
+                            //sexo.
+                       // }
+
+                    }
+                }
+            }
+        });
+
+sexo.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        if(sexo.isChecked()==true){
+            c="MACHO";
+        }else{
+            c="HEMBRA";
+        }
+    }
+});
+
+
+
+
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),R.array.opciones,android.R.layout.simple_spinner_item);
         clase.setAdapter(adapter);
         clase.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String opcion= String.valueOf(clase.getSelectedItemId());
+
                 int op = Integer.parseInt(opcion);
                 System.out.println(opcion);
                 if (op==0)
@@ -194,51 +253,8 @@ public class Modificar extends Fragment {
 
             }
         });
-        if(sexo.isChecked()){
-            c="Macho";
-        }else{
-            c="Hembra";
-        }
 
 
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!id.getText().toString().equals(""))
-                {
-                    if (sqlite.getCantidad(Integer.parseInt(id.getText().toString())).getCount()==1)
-                    {
-                        clase.setVisibility(view.VISIBLE);
-                        tipo.setVisibility(view.VISIBLE);
-                        sexo.setVisibility(view.VISIBLE);
-                        nombre.setVisibility(view.VISIBLE);
-                        habit.setVisibility(view.VISIBLE);
-                        alim.setVisibility(view.VISIBLE);
-                        fech.setVisibility(view.VISIBLE);
-                        btnGuardar.setVisibility(view.VISIBLE);
-                        int f = Integer.parseInt(id.getText().toString());
-                        Cursor cursor = sqlite.getCantidad(f);
-                        String g1 =null, g2 =null, g3 =null, g4 =null, g5=null,g6=null,g7=null;
-                        if (cursor.moveToFirst())
-                        {
-                            do {
-                                g1 = cursor.getString(3);
-                                g2 = cursor.getString(5);
-                                g3 = cursor.getString(6);
-                                g4 = cursor.getString(7);
-                               // g5=c
-                            }while (cursor.moveToNext());
-                        }
-                        nombre.setText(g2.toString());
-                        habit.setText(g3.toString());
-                        alim.setText(g4.toString());
-                        fech.setText(g1.toString());
-                        //clase.
-
-                    }
-                }
-            }
-        });
 
 
         btnGuardar.setOnClickListener(new View.OnClickListener(){
@@ -256,10 +272,11 @@ public class Modificar extends Fragment {
                             habit.getText().toString().toUpperCase()+" "+
                             alim.getText().toString().toUpperCase(), Toast.LENGTH_LONG).show();
 
-                    if (sqlite.actualizarAnimal(Integer.parseInt(id.getText().toString()), a, b,c, nombre.getText().toString().toUpperCase(),
+                    if (sqlite.actualizarAnimal(Integer.parseInt(id.getText().toString()), a, c,b, nombre.getText().toString().toUpperCase(),
                             fech.getText().toString(),habit.getText().toString().toUpperCase(),alim.getText().toString().toUpperCase()))
                     {
-                        Toast.makeText(getContext(),"Registro añadido",Toast.LENGTH_SHORT).show();
+                        //(int id, String clas, String sex, String esp, String nom, String date, String habitat, String food){
+                       // Toast.makeText(getContext(),"Registro añadido",Toast.LENGTH_SHORT).show();
                         id.setText("");
                         nombre.setText("");
                         fech.setText("");

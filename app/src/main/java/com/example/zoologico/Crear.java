@@ -184,13 +184,17 @@ public class Crear extends Fragment {
             }
         });
 
-
-            if(sexo.isChecked()){
-                c="MACHO";
-            }else{
-                c="Hembra";
+//Verificar si funciona
+        sexo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(sexo.isChecked()==true){
+                    c="MACHO";
+                }else{
+                    c="HEMBRA";
+                }
             }
-
+        });
 
 
     btnGuardar.setOnClickListener(new View.OnClickListener(){
