@@ -39,7 +39,7 @@ public class SQLite {
         cv.put("ESPECIE",esp);
         cv.put("NOMBRE",nom);
         cv.put("SEXO",sex);
-        cv.put("FECHA_ING",food);
+        cv.put("FECHA_ING",date);
         cv.put("HABITAT",habitat);
         cv.put("ALIMENTO",food);
         return (db.insert("ANIMALS",null,cv)!=-1)?true:false;
@@ -52,9 +52,11 @@ public class SQLite {
 
     public ArrayList<String> getAnimal(Cursor cursor){
         ArrayList<String> listData= new ArrayList<>();
-        String item = "";
+
         if(cursor.moveToFirst()){
+
             do{
+                String item = "";
                 item+="ID: ["+cursor.getInt(0)+"]\r\n";
                 item+="Clasificación: ["+cursor.getString(1)+"]\r\n";
                 item+="Especie: ["+cursor.getString(2)+"]\r\n";
@@ -84,7 +86,7 @@ public class SQLite {
         return listData;
     }
 
-    public String actualizarAnimal(int id, String clas, String sex, String esp, String nom, String date, String habitat, String food){
+    public boolean actualizarAnimal(int id, String clas, String sex, String esp, String nom, String date, String habitat, String food){
 
         ContentValues cv= new ContentValues();
         cv.put("ID_PROD",id);
@@ -92,14 +94,14 @@ public class SQLite {
         cv.put("ESPECIE",esp);
         cv.put("NOMBRE",nom);
         cv.put("SEXO",sex);
-        cv.put("FECHA_ING",food);
+        cv.put("FECHA_ING",date);
         cv.put("HABITAT",habitat);
         cv.put("ALIMENTO",food);
         int cant = db.update("ANIMALS",cv,"ID_PROD="+id,null);
         if(cant==1){
-            return "Usuario modificado";
+            return true;
         }else{
-            return "Error, no se modificó";
+            return false;
         }
     }
 

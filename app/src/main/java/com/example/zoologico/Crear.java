@@ -193,9 +193,7 @@ public class Crear extends Fragment {
 
 
 
-
-
-btnGuardar.setOnClickListener(new View.OnClickListener(){
+    btnGuardar.setOnClickListener(new View.OnClickListener(){
     @Override
     public void onClick(View v){
         if(!id.getText().toString().equals("")&&
@@ -235,6 +233,8 @@ btnGuardar.setOnClickListener(new View.OnClickListener(){
 
     }
 });
+
+
 return view;
     }
 }
