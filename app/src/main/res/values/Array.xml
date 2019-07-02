@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="opciones">
-        <item>Selecciona opciones</item>
+        <item>Selecciona una clasificación</item>
         <item>Reptiles</item>
         <item>Aereos</item>
         <item>Terrestres</item>
         <item>Acuaticos</item>
     </string-array>
 
-    <string-array name="sexo">
+    <string-array name="sx">
         <item>Masculino</item>
         <item>Femenino</item>
     </string-array>
-
 
     <string-array name="o0">
         <item>No ha seleccionado una clasificación</item>
     </string-array>
 
+    <string-array name="o1">
+        <item>Elija tipo de animal</item>
+        <item>Serpiente</item>
+        <item>Iguana</item>
+        <item>Cocodrilo</item>
+    </string-array>
+
     <string-array name="o2">
-        <item>Elija el tipo de animal</item>
+        <item>Elija tipo de animal</item>
         <item>Flamenco</item>
         <item>Buho</item>
+        <item>Pato</item>
+        <item>Halcon</item>
     </string-array>
 
     <string-array name="o3">
@@ -39,4 +47,5 @@
         <item>Ballena</item>
         <item>Mantarraya</item>
     </string-array>
+
 </resources>

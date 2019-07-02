@@ -43,8 +43,9 @@ public class Listar extends Fragment {
         Cursor cursor = sqlite.getRegistro();
         ArrayList<String> reg = sqlite.getAnimal(cursor);
 
-        ArrayAdapter<String> adaptador= new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,reg);
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,reg);
         l.setAdapter(adaptador);
+
         return view;
 
     }

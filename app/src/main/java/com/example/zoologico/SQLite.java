@@ -32,7 +32,7 @@ public class SQLite {
         sql.close();
     }
 
-    public boolean altaAnimal(int id, String clas, String sex, String esp, String nom, String date, String habitat, String food){
+    public boolean altaAnimal(int id, String clas, String esp, String sex, String nom, String date, String habitat, String food){
         ContentValues cv= new ContentValues();
         cv.put("ID_PROD",id);
         cv.put("CLASIFICACION",clas);
@@ -56,14 +56,15 @@ public class SQLite {
         if(cursor.moveToFirst()){
             do{
                 item+="ID: ["+cursor.getInt(0)+"]\r\n";
-                item+="Clasificación: ["+cursor.getInt(0)+"]\r\n";
-                item+="Especie: ["+cursor.getInt(0)+"]\r\n";
-                item+="Nombre: ["+cursor.getInt(0)+"]\r\n";
-                item+="Sexo: ["+cursor.getInt(0)+"]\r\n";
-                item+="Fecha: ["+cursor.getInt(0)+"]\r\n";
-                item+="Habitat: ["+cursor.getInt(0)+"]\r\n";
-                item+="Alimento: ["+cursor.getInt(0)+"]\r\n";
+                item+="Clasificación: ["+cursor.getString(1)+"]\r\n";
+                item+="Especie: ["+cursor.getString(2)+"]\r\n";
+                item+="Nombre: ["+cursor.getString(3)+"]\r\n";
+                item+="Sexo: ["+cursor.getString(4)+"]\r\n";
+                item+="Fecha: ["+cursor.getString(5)+"]\r\n";
+                item+="Habitat: ["+cursor.getString(6)+"]\r\n";
+                item+="Alimento: ["+cursor.getString(7)+"]\r\n";
                 listData.add(item);
+
 
             }while(cursor.moveToNext());
         }
@@ -107,6 +108,6 @@ public class SQLite {
     }
 
     public int Eliminar(Editable id){
-        return db.delete("ANIMALS","ID_PROD"+id,null);
+        return db.delete("ANIMALS","ID_PROD="+id,null);
     }
 }

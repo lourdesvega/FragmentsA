@@ -63,7 +63,7 @@ public class Crear extends Fragment {
 
                 }
                 if(op==1){
-                    final ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(getContext(),R.array.o0,android.R.layout.simple_spinner_item);
+                    final ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(getContext(),R.array.o1,android.R.layout.simple_spinner_item);
                             tipo.setAdapter(adapter1);
                     a=adapter.getItem(1).toString();
                     tipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -147,7 +147,7 @@ public class Crear extends Fragment {
                         }
                     });
                 }else if (op==4){
-                    final ArrayAdapter<CharSequence>adapter4= ArrayAdapter.createFromResource(getContext(),R.array.o3,android.R.layout.simple_spinner_item);
+                    final ArrayAdapter<CharSequence>adapter4= ArrayAdapter.createFromResource(getContext(),R.array.o4,android.R.layout.simple_spinner_item);
                     tipo.setAdapter(adapter4);
                     a=adapter.getItem(4).toString();
                     tipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
@@ -184,16 +184,14 @@ public class Crear extends Fragment {
             }
         });
 
-      /*  sexo.setOnItemSelectedListener(new View.OnClickListener(){
-            @Override
-        public  void Onclick (View view){
+
             if(sexo.isChecked()){
                 c="MACHO";
             }else{
                 c="Hembra";
             }
-        }
-        }*/
+
+
 
 
 
@@ -201,19 +199,18 @@ btnGuardar.setOnClickListener(new View.OnClickListener(){
     @Override
     public void onClick(View v){
         if(!id.getText().toString().equals("")&&
-                !id.getText().toString().equals("")&&
         !nombre.getText().toString().equals("")&&
         !habitat.getText().toString().equals("")&&
         !aliment.getText().toString().equals("")&&
         !fech.getText().toString().equals("")
     ){
-            Toast.makeText(getContext(),a+" "+
+            Toast.makeText(getContext(),a+" "+b+" "+
                     nombre.getText().toString().toUpperCase()+" "+
-                    sex+" "+fech.getText().toString()+" "+
+                    c+" "+fech.getText().toString()+" "+
                     habitat.getText().toString().toUpperCase()+" "+
                     aliment.getText().toString().toUpperCase(), Toast.LENGTH_LONG).show();
-            if (sqlite.altaAnimal(Integer.parseInt(id.getText().toString()), a, b, nombre.getText().toString().toUpperCase(),
-                    sex, fech.getText().toString(),habitat.getText().toString().toUpperCase(),
+            if (sqlite.altaAnimal(Integer.parseInt(id.getText().toString()), a, b,c, nombre.getText().toString().toUpperCase(),
+                     fech.getText().toString(),habitat.getText().toString().toUpperCase(),
                     aliment.getText().toString().toUpperCase())
             ) {
                 Toast.makeText(getContext(),"Registro añadido",Toast.LENGTH_SHORT).show();

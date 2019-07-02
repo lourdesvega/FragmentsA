@@ -14,22 +14,37 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         tools:context=".Eliminar">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="237dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="serif"
+            android:text="Nuevo Registro"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorAccent"
+            android:textSize="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout6"
-            android:layout_width="315dp"
-            android:layout_height="59dp"
+            android:layout_width="283dp"
+            android:layout_height="64dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ideliminar"
-                android:layout_width="327dp"
-                android:layout_height="48dp"
+                android:layout_width="275dp"
+                android:layout_height="41dp"
                 android:hint="ID" />
 
 
@@ -39,10 +54,10 @@
             android:id="@+id/btneliminar"
             android:layout_width="172dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="52dp"
             android:text="eliminar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.271"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
